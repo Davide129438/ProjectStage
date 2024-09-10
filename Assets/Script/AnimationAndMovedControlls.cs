@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -31,10 +28,6 @@ public class AnimationAndMoveControls : MonoBehaviour
     bool isJumping = false;
 
     float currentJumpVelocity;
-
-    // Variables for platform movement
-    private Transform currentPlatform; // To store the platform player is on
-    private Vector3 platformPreviousPosition;
 
     void Awake()
     {
@@ -101,6 +94,30 @@ public class AnimationAndMoveControls : MonoBehaviour
         isRunPressed = context.ReadValueAsButton();
     }
 
+    // Metodo aggiornato per il movimento relativo alla telecamera
+    void onMovementInput(InputAction.CallbackContext context)
+    {
+        currentMovementInput = context.ReadValue<Vector2>();
+
+        // Ottieni i vettori di direzione della telecamera
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+
+        // Annulla l'asse Y per ottenere solo il piano orizzontale
+        forward.y = 0f;
+        right.y = 0f;
+
+        // Normalizza i vettori
+        forward.Normalize();
+        right.Normalize();
+
+        // Calcola il movimento basato sugli input e la direzione della telecamera
+        currentMovement = forward * currentMovementInput.y + right * currentMovementInput.x;
+        currentRunMovement = currentMovement * runMultiplier;
+
+        isMovementPressed = currentMovementInput.x != zero || currentMovementInput.y != zero;
+    }
+
     void handleRotation()
     {
         Vector3 positionToLookAt;
@@ -113,20 +130,10 @@ public class AnimationAndMoveControls : MonoBehaviour
 
         if (isMovementPressed)
         {
+            // Ruota verso la direzione del movimento
             Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
             transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationFactorPerFrame * Time.deltaTime);
         }
-    }
-
-    void onMovementInput(InputAction.CallbackContext context)
-    {
-        currentMovementInput = context.ReadValue<Vector2>();
-
-        currentMovement.x = currentMovementInput.x;
-        currentMovement.z = currentMovementInput.y;
-        currentRunMovement.x = currentMovementInput.x * runMultiplier;
-        currentRunMovement.z = currentMovementInput.y * runMultiplier;
-        isMovementPressed = currentMovementInput.x != zero || currentMovementInput.y != zero;
     }
 
     void handleAnimation()
@@ -167,39 +174,12 @@ public class AnimationAndMoveControls : MonoBehaviour
         }
     }
 
-    // Handle moving platform logic
-    void handlePlatformMovement()
-    {
-        if (currentPlatform != null)
-        {
-            Vector3 platformMovement = currentPlatform.position - platformPreviousPosition;
-            characterController.Move(platformMovement); // Move the player with the platform
-            platformPreviousPosition = currentPlatform.position;
-        }
-    }
-
-    // Detect when the player is on a platform
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        if (hit.gameObject.CompareTag("MovingPlatform"))
-        {
-            if (currentPlatform == null)
-            {
-                currentPlatform = hit.gameObject.transform;
-                platformPreviousPosition = currentPlatform.position;
-            }
-        }
-        else
-        {
-            currentPlatform = null;
-        }
-    }
-
     void Update()
     {
         handleRotation();
         handleAnimation();
 
+        // Muovi il personaggio in base al movimento e allo stato di corsa
         if (isRunPressed)
         {
             characterController.Move(currentRunMovement * Time.deltaTime);
@@ -211,8 +191,6 @@ public class AnimationAndMoveControls : MonoBehaviour
 
         handleGravity();
         handleJump();
-
-        handlePlatformMovement(); // Handle platform movement
     }
 
     void OnEnable()
