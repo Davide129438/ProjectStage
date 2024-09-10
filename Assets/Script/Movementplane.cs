@@ -7,16 +7,17 @@ public class Movementplane : MonoBehaviour
 
     public float amp;
     public float freq;
+    public Transform platform;
     Vector3 initPos;
     
     void Start()
     {
-        initPos = transform.position;
+        initPos = platform.position;
     }
 
     
     void Update()
     {
-        transform.position = new Vector3(initPos.x, Mathf.Sin(Time.time * freq) * amp + initPos.y, 0);
+        transform.position = new Vector3(initPos.x, Mathf.Sin(Time.time * freq) * amp + initPos.y, initPos.z);
     }
 }
