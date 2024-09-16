@@ -87,6 +87,7 @@ public class AnimationAndMoveControls : MonoBehaviour
     void onJump(InputAction.CallbackContext context)
     {
         isJumpPressed = context.ReadValueAsButton();
+        AudioManager.instance.PlaySFX(AudioManager.instance.jump, 0.1f);
     }
 
     void onRun(InputAction.CallbackContext context)
@@ -116,6 +117,8 @@ public class AnimationAndMoveControls : MonoBehaviour
         currentRunMovement = currentMovement * runMultiplier;
 
         isMovementPressed = currentMovementInput.x != zero || currentMovementInput.y != zero;
+
+       
     }
 
     void handleRotation()
@@ -183,10 +186,13 @@ public class AnimationAndMoveControls : MonoBehaviour
         if (isRunPressed)
         {
             characterController.Move(currentRunMovement * Time.deltaTime);
+            if(!AudioManager.instance.WalkSource.isPlaying)
+                AudioManager.instance.WalkSource.Play();
         }
         else
         {
             characterController.Move(currentMovement * Time.deltaTime);
+            AudioManager.instance.WalkSource.Stop();
         }
 
         handleGravity();

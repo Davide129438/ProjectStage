@@ -5,7 +5,14 @@ using UnityEngine;
 
 public class Coincollection : MonoBehaviour
 {
-     static private int Coin = 0;
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+    static private int Coin = 0;
 
     public TextMeshProUGUI coinText;
 
@@ -17,6 +24,7 @@ public class Coincollection : MonoBehaviour
             coinText.text = "Coin " + Coin.ToString();
             Debug.Log(Coin);
             Destroy(this.gameObject);
+            audioManager.PlaySFX(audioManager.collectCoin);
         }
     }
 
