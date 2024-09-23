@@ -1052,12 +1052,33 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-    in culpa qui officia deserunt mollit anim id est laborum."'
+  m_text: "Anno 2024, Terra. I robot positronici ormai sono diventati un'articolo
+    domestico come un altro, alla portata di tutti e in tutte le case, e il mondo
+    aspetta l'arrivo sul mercato dei nuovissimi BI-06, generazione prodotta dalla
+    Roboto Industry, azienda leader della robotica. Durante la produzione uno dei
+    BI-05 si danneggia e viene contrassegnato come diffetoso quindi ritenuto non
+    adatto alla vendit\xE0 questa unit\xE0 di BI-05 viene depositata tra gli scarti.\nUno
+    degli scienziati della Roboto in un momento di pausa si accorge che uno dei BI-05
+    era finito tra gli scarti e incuriosito lo analizza cercando di capire come mai
+    era stato considerato difettoso.\nMentre lo analizza lo scienziato si rende conto
+    che quella unit\xE0 di BI-05 era diversa da tutti gli altri modelli in quanto
+    il suo codice era diverso e gli permetteva di apprendere ed acquisire informazioni
+    in grado di autogestirsi e apprendere tecniche che le altre unit\xE0 non potevano
+    acquisire dandogli il nome di BIOS.\nIl capo della Roboto Industry mentre osservava
+    i suoi dipendenti dalle telecamere del suo ufficio, nota qualcosa di strano nel
+    laboratorio lo scienziato igniaro del fatto che fosse osservato segretamente
+    dal capo, inizia a testare le nuove abilit\xE0 del suo nuovo amico. Stupido ed
+    meravigliato dalle abilit\xE0 di BI-05 il capo decide di utilizzarlo a tutti
+    i costi per la produzione di nuovi modelli BI-06, utilizzando il codice del BI-05
+    per la creazione di nuovi robot da combattimento da vendere poi alle industrie
+    belliche di altri paesi allo scopo di arricchirsi.\nLo scienziato ascoltando
+    involontariamente una conversazione del capo con alcuni dei suoi colleghi, realizza
+    che li spiava di nascosto perch\xE9 sapeva del robot e di cosa era in grado di
+    fare.\nCos\xEC corre nel suo laboratorio per bloccare le porte ed attivare BIOS
+    lo costringe a fuggire ed a nascondersi dal capo.\nRiuscito passando da uno dei
+    condotti d'ariazione del laboratorio, BIOS riesce a fuggire, ma mentre fugge
+    da una finestra scorge il capo uccidere lo scienziato a cui si era affezionato
+    giurando di vendicarsi distrungendo la Roboto Industry."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b5334611c25dce4797c053036c264ec, type: 2}
   m_sharedMaterial: {fileID: 7162069593155100592, guid: 1b5334611c25dce4797c053036c264ec, type: 2}
