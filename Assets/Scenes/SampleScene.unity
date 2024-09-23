@@ -675,6 +675,7 @@ MonoBehaviour:
   collectCoin: {fileID: 8300000, guid: 2966276665cafcb4abba3239475cb678, type: 3}
   walk: {fileID: 8300000, guid: 23259d1390ae7504786e26a67c7dfc01, type: 3}
   teleportIn: {fileID: 8300000, guid: ac5e3249c6145f14caec9bf25555e416, type: 3}
+  Death: {fileID: 8300000, guid: a1a0afa2006fce044a3c627732facf06, type: 3}
 --- !u!4 &656129886
 Transform:
   m_ObjectHideFlags: 0
@@ -1297,6 +1298,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1315405408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1315405409}
+  m_Layer: 0
+  m_Name: TpSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1315405409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315405408}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.292, z: -9.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1689068182}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380409435 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1104942672866600913, guid: ef2f048d300ee0647943f0dc5cca0194, type: 3}
@@ -1562,9 +1594,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.68, y: 1.93, z: 15.38}
-  m_LocalScale: {x: 3.3382497, y: 3.395, z: 0.21535}
+  m_LocalScale: {x: 3.3382497, y: 3.395, z: 0.3}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1315405409}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1689068183
@@ -2144,7 +2177,7 @@ PrefabInstance:
     - target: {fileID: 3979512574619680694, guid: d5517f77218a0f44da793c46c5ab18ce, type: 3}
       propertyPath: tp
       value: 
-      objectReference: {fileID: 1689068182}
+      objectReference: {fileID: 1315405409}
     - target: {fileID: 3979512574619680694, guid: d5517f77218a0f44da793c46c5ab18ce, type: 3}
       propertyPath: Jammo_LowPoly
       value: 

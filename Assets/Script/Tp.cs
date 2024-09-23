@@ -9,17 +9,22 @@ public class Tp : MonoBehaviour
     [SerializeField] GameObject Jammo_LowPoly;
 
     AudioManager audioManager;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        StartCoroutine(Teleport());
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+       
+        if (other.transform.tag == "Player")
+        {
+           
+            StartCoroutine(Teleport());
+        }
+           
     }
 
     IEnumerator Teleport()
     {
-        audioManager.PlaySFX(audioManager.teleportIn);
-       
-        yield return new WaitForSeconds(1);
+       // audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        yield return new WaitForSeconds(0.5f);
+        //audioManager.PlaySFX(audioManager.teleportIn);
         Jammo_LowPoly.transform.position = new Vector3(
             tp.transform.position.x,
             tp.transform.position.y,

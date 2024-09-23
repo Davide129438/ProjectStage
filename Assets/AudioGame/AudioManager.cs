@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource musicSource;
     [SerializeField] AudioSource SFXSource;
     [SerializeField] public AudioSource WalkSource;
+    
 
     [Header("---------- Audio Clip ----------")]
     public AudioClip background;
@@ -14,6 +15,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip collectCoin;
     public AudioClip walk;
     public AudioClip teleportIn;
+    public AudioClip Death;
 
    public static AudioManager instance;
 

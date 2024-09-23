@@ -9,13 +9,31 @@ public class KillPlayer : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private Transform respawn_point;
 
+    Animator animator;
+    int count = 0;
+    AudioManager audioManager;
+
+    private void Start()
+    {
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            player = other.gameObject.transform;
-           other.gameObject.SetActive(false);
-            StartCoroutine(Respawn());
+            if(count == 0)
+            {
+                count = 1;
+                player = other.gameObject.transform;
+                animator.SetBool("IsDeath", true);
+                animator.Play("Death");
+                audioManager.PlaySFX(audioManager.Death);
+
+                StartCoroutine(OffPlayer(player));
+                StartCoroutine(Respawn());
+            }
+            
         }
         //GameObject go = Instantiate(player.gameObject);
         //go.transform.position = respawn_point.transform.position;
@@ -23,10 +41,19 @@ public class KillPlayer : MonoBehaviour
 
     private IEnumerator Respawn()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
+   
+        animator.SetBool("IsDeath", false);
         player.position = respawn_point.position;
         player.gameObject.SetActive(true);
+        count = 0;
 
+    }
+
+    private IEnumerator OffPlayer(Transform player)
+    {
+        yield return new WaitForSeconds(1.5f);
+        player.gameObject.SetActive(false);
     }
 
 }
