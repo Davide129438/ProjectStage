@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip walk;
     public AudioClip teleportIn;
     public AudioClip Death;
+    public AudioClip Exsplosion;
 
    public static AudioManager instance;
 
