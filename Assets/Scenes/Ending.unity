@@ -984,14 +984,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-    in culpa qui officia deserunt mollit anim id est laborum."
-
-'
+  m_text: "Bios riuscito a sfuggire ai robot del Presidente della Roboto Industry
+    riesce finalmente ad arrivare al nucleo centrale dell'industria. \nUna volta
+    l\xEC, Bios scopre che per distruggere il nucleo ha bisogno di un chip speciale
+    che Bios possiede all'interno del suo corpo e che lo stesso a renderlo speciale
+    e senza il quale non potrebbe pi\xF9 vivere.\nRicordando con affetto i giorni
+    felici trascorsi con lo scienziato che per lui era diventato come un padre, decide
+    di sacrificarsi facendosi esplodere distruggendo il nucleo.\nLa Robot Industry
+    esplode coinvolgendo tutti coloro che vi erano dentro incluso il Presidente.\nBios
+    con il suo sacrificio era riuscito a vendicare suo padre e allo stesso tempo
+    a salvare il mondo da una grande minaccia.\n                                      
+    FINE"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1b5334611c25dce4797c053036c264ec, type: 2}
   m_sharedMaterial: {fileID: 7162069593155100592, guid: 1b5334611c25dce4797c053036c264ec, type: 2}
